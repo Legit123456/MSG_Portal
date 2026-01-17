@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Upload, PenTool } from "lucide-react";
 
 const Register = () => {
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api/recruit";
+  const API_URL = "https://msg-portal.onrender.com/api/recruit";
   const sigCanvas = useRef({});
   const [loading, setLoading] = useState(false);
   const [sigMode, setSigMode] = useState("draw"); // 'draw' or 'upload'
