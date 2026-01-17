@@ -11,7 +11,12 @@ const app = express();
 
 // 1. ALLOW EVERYTHING (The Fix)
 app.use(cors({
-    origin: '*', // Allow any port (5173, 5174, 5177, etc.)
+    origin: [
+        "http://localhost:5176", 
+        "http://localhost:5177",
+        "https://msg-portal-delta.vercel.app/", // REPLACE WITH REAL VERCEL URL
+        "https://msg-portal-3cqi.vercel.app/"   // REPLACE WITH REAL VERCEL URL
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }));
