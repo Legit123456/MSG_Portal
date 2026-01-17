@@ -287,14 +287,23 @@ function App() {
                         <p className="text-gray-300 text-sm italic">"{selectedRecruit.reason}"</p>
                     </div>
                     
-                    <div className="grid grid-cols-2 gap-3">
-                         <div className="bg-white/5 p-3 rounded-lg border border-white/5">
+                    {/* Contact Info Row */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div className="bg-white/5 p-3 rounded-lg border border-white/5">
+                            <p className="text-[10px] text-gray-500 uppercase mb-1">Email Address</p>
+                            <p className="text-white font-mono text-xs break-all">{selectedRecruit.email}</p>
+                        </div>
+                        <div className="bg-white/5 p-3 rounded-lg border border-white/5">
                             <p className="text-[10px] text-gray-500 uppercase mb-1">WhatsApp</p>
                             <p className="text-green-400 font-mono text-xs">{selectedRecruit.whatsapp}</p>
                         </div>
-                        <div className="bg-white/5 p-3 rounded-lg border border-white/5">
-                            <p className="text-[10px] text-gray-500 uppercase mb-1">Signature</p>
-                            <img src={selectedRecruit.signatureUrl} className="h-6 opacity-80 filter invert" alt="Sig" />
+                    </div>
+
+                    {/* Signature Row */}
+                    <div className="bg-white/5 p-3 rounded-lg border border-white/5 flex items-center justify-between">
+                        <p className="text-[10px] text-gray-500 uppercase">Digital Signature</p>
+                        <div className="bg-white/10 p-1 rounded">
+                            <img src={selectedRecruit.signatureUrl} className="h-8 opacity-80 filter invert" alt="Sig" />
                         </div>
                     </div>
                 </div>
