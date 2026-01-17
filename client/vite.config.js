@@ -6,5 +6,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5177, // 👈 Explicitly set to 5177
-  }
+  },
+  define: {
+    global: 'window',
+  },
 })
