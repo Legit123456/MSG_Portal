@@ -2,34 +2,20 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
-
-// Import Routes
 import recruitRoutes from './routes/recruitRoutes.js'; 
 
 dotenv.config();
 const app = express();
 
-// 1. INCREASE DATA LIMITS (Fixes 400 Bad Request)
+// 1. INCREASE DATA LIMITS
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
-// 2. BULLETPROOF CORS (Fixes CORS Block)
-const allowedOrigins = [
-  "http://localhost:5173",
-  "http://localhost:5174",
-  "https://msg-portal-delta.vercel.app/", 
-  "https://msg-portal-3cqi.vercel.app/"  
-];
-
+// 2. UNIVERSAL CORS (The Fix)
+// We remove the strict list. This allows Vercel, Localhost, Mobile, anything.
 app.use(cors({
     origin: function (origin, callback) {
-        // Allow requests with no origin (like mobile apps or curl requests)
-        if (!origin) return callback(null, true);
-        
-        if (allowedOrigins.indexOf(origin) === -1) {
-            const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-            return callback(new Error(msg), false);
-        }
+        // Return "true" for everyone. 
         return callback(null, true);
     },
     methods: ["GET", "POST", "PUT", "DELETE"],
