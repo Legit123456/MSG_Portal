@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import SignatureCanvas from "react-signature-canvas";
+// import SignatureCanvas from "react-signature-canvas";
 import { toast, ToastContainer } from "react-toastify";
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
@@ -236,7 +236,8 @@ const Register = () => {
               ></textarea>
             </div>
 
-            {/* Signature Section - Enhanced */}
+            {/* Signature Section - Placeholder */}
+            {/* Original SignatureCanvas component commented out
             <div className="md:col-span-2 bg-white/5 p-4 rounded-xl border border-white/10">
               <div className="flex justify-between items-center mb-4">
                 <p className="text-sm text-gray-400">Digital Signature</p>
@@ -310,6 +311,8 @@ const Register = () => {
                 </div>
               )}
             </div>
+            */}
+            <div className="md:col-span-2">Signature Placeholder</div>
 
             {/* Submit Button */}
             <button
